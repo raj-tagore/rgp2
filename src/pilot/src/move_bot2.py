@@ -12,7 +12,7 @@ def random_pose():
     pose.header.frame_id = ""  # any frame you're working with
     pose.pose.position.x = np.random.uniform(0, 0.5)
     pose.pose.position.y = np.random.uniform(-0.7, 0.7)
-    pose.pose.position.z = 0.5
+    pose.pose.position.z = 0.7
     
     rotx = np.pi
     roty = 0
@@ -33,7 +33,7 @@ def random_pose():
 if __name__ == '__main__':
     rospy.init_node('move_bot', anonymous=True)
     pub = rospy.Publisher('/cartesian_impedance_example_controller/equilibrium_pose', PoseStamped, queue_size=1)
-    rate = rospy.Rate(0.1)
+    rate = rospy.Rate(1)
     try:
         while not rospy.is_shutdown():
             pub.publish(random_pose())
