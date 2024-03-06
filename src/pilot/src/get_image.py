@@ -15,7 +15,7 @@ def callback(data):
 
     # Display the converted image
     cv2.imshow("Image window", cv_image)
-    cv2.imwrite("../images/image1.jpg", cv_image)
+    cv2.imwrite("../images/d_image1.jpg", cv_image)
     cv2.waitKey(3)
 
 def main():
