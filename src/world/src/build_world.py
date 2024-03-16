@@ -24,7 +24,10 @@ class World:
         self.image = msg
         
     def get_depth(self, msg):
-        self.depth = msg
+        depth_points = []
+        
+        
+    def 
     
 if __name__ == '__main__':
     
@@ -34,5 +37,7 @@ if __name__ == '__main__':
     T_sub = rospy.Subscriber('rgp2/camera_transform', Float32MultiArray, world.get_tfx)
     C_sub = rospy.Subscriber('camera/rgb/image_raw', Image, world.get_image)
     D_sub = rospy.Subscriber('camera/depth/points', PointCloud2, world.get_depth)
+    
+    rospy.spin()
     
         

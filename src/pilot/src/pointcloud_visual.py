@@ -11,6 +11,7 @@ def pointcloud2_to_array(msg):
     point_list = []
     for point in pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z")):
         point_list.append(point)
+    rospy.loginfo(np.array(point_list).shape)
     return np.array(point_list)
 
 def visualize_point_cloud(points):
