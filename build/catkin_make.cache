@@ -1,2 +1,2 @@
-pilot
+pilot:world
 -DCATKIN_DEVEL_PREFIX=/home/rajtagore/rgp2_ws/devel -DCMAKE_INSTALL_PREFIX=/home/rajtagore/rgp2_ws/install -G Unix Makefiles

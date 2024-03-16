@@ -27,7 +27,7 @@ def point_cloud_callback(msg):
     
     # Visualize the point cloud
     visualize_point_cloud(points)
-    #print(points.shape)
+    # print(points.shape)
 
 if __name__ == '__main__':
     rospy.init_node('pointcloud_visualizer', anonymous=True)
