@@ -36,7 +36,7 @@ class Camera:
         transformation_matrix[1][3] = self.position.y
         transformation_matrix[2][3] = self.position.z
         
-        # rospy.loginfo("Transformation Matrix: %s", transformation_matrix.round())
+        # rospy.loginfo("Transformation Matrix: %s", transformation_matrix.round(2))
         
         transformation_matrix_msg = Float32MultiArray(data=transformation_matrix.flatten().tolist())
         self.T_pub.publish(transformation_matrix_msg)
@@ -53,10 +53,10 @@ if __name__ == '__main__':
     group = moveit_commander.MoveGroupCommander("panda_arm")
     rospy.init_node('rgp2_camera')
     camera = Camera()
-    
+    rospy.loginfo(group.get_planning_frame())
     rate = rospy.Rate(100)
     while not rospy.is_shutdown():
-        camera_pose = group.get_current_pose(end_effector_link="camera_link")
+        camera_pose = group.get_current_pose(end_effector_link="camera_depth_link")
         camera.handle_pose(camera_pose)
         rate.sleep()
         

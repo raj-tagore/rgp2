@@ -7,6 +7,7 @@ import cv_bridge
 import cv2
 
 def callback(data):
+    
     bridge = CvBridge()
     try:
         cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
@@ -14,7 +15,8 @@ def callback(data):
         print(e)
 
     # Display the converted image
-    cv2.imshow("Image window", cv_image)
+    cv_image = cv_image[:, :460]
+    cv2.imshow("RGB Image", cv_image)
     cv2.imwrite("../images/d_image1.jpg", cv_image)
     cv2.waitKey(3)
 
