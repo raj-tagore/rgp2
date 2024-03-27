@@ -42,7 +42,7 @@ def callback(data):
     resized = cv2.resize(pixels, (640, 480), interpolation=cv2.INTER_CUBIC)
     
     cropped = resized[:, :460]
-    cv2.imshow("Depth Image", cropped)
+    cv2.imshow("Depth Image", pixels)
     cv2.waitKey(3)
     
 

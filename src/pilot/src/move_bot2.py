@@ -10,9 +10,12 @@ def random_pose():
     pose = PoseStamped()
     pose.header.stamp = rospy.Time.now()
     pose.header.frame_id = ""  # any frame you're working with
-    pose.pose.position.x = np.random.uniform(0, 0.5) #0.15
-    pose.pose.position.y = np.random.uniform(-0.7, 0.7) #0.0
-    pose.pose.position.z = 0.5
+    
+    # [ 0.3522457  -0.23809611 -0.07129898] [ 0.6141156   0.04148111 -0.10255097]
+    
+    pose.pose.position.x = 0.6141156 #np.random.uniform(0, 0.5) #0.15
+    pose.pose.position.y = -0.04148111 #np.random.uniform(-0.7, 0.7) #0.0
+    pose.pose.position.z = 0.09
     
     rotx = np.pi
     roty = 0

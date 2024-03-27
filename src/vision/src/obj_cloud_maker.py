@@ -84,9 +84,9 @@ class Vision:
                 obj.pc = np.zeros((y2-y1, x2-x1, 3), dtype=np.float32)
                 
                 for x in range(x1, x2):
-                    for y in range(y1, y2):
+                    for y in range(y1, y2): 
                         obj.pc[y-y1, x-x1] = self.xyz_uv[y, x]
-                
+                        
                 obj.publish(self.obj_clouds_pub)
                 
                     

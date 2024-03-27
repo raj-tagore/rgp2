@@ -15,14 +15,24 @@ def create_plots():
     for i in range(len(obj_list)):
         name, points = obj_list[i]
         points = points.reshape(-1, 3)
+        
+        points = points[~np.any(points == 0, axis=1)]
+        
         pcd = o3d.geometry.PointCloud()
         pcd.points = o3d.utility.Vector3dVector(points)
-        o3d.visualization.draw_geometries([pcd], window_name=name, width=800, height=600)
         
-        # Save point cloud to file
-        filename = f"{name}.ply"
-        o3d.io.write_point_cloud(filename, pcd)
+        # Compute smallest bounding box around pointcloud
+        bbox = pcd.get_axis_aligned_bounding_box()
+        
+        # Get the center of the bounding box
+        center = bbox.get_center()
 
+        # Print the center coordinates
+        print("Center coordinates:", center)
+
+        # Draw the bounding box along with pointclouds
+        o3d.visualization.draw_geometries([pcd, bbox], window_name=name, width=800, height=600)
+        
         
     
 def process_point_cloud(msg):
