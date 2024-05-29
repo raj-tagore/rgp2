@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "pilot"
-PROJECT_SPACE_DIR = "/home/rajtagore/rgp2_ws/devel"
+PROJECT_SPACE_DIR = "/home/rajtagore/rgp2_ws/devel/.private/pilot"
 PROJECT_VERSION = "0.0.0"

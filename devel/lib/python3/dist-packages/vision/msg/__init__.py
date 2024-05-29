@@ -1,1 +1,1 @@
-from ._ObjCloud import *
+/home/rajtagore/rgp2_ws/devel/.private/vision/lib/python3/dist-packages/vision/msg/__init__.py

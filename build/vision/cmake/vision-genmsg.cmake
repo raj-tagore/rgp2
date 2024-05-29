@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "vision: 1 messages, 0 services")
+message(STATUS "vision: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Ivision:/home/rajtagore/rgp2_ws/src/vision/msg;-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_vision_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "vision" "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg" ""
 )
 
+get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg" NAME_WE)
+add_custom_target(_vision_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "vision" "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +35,12 @@ add_custom_target(_vision_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(vision
   "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
+)
+_generate_msg_cpp(vision
+  "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
@@ -51,6 +62,8 @@ add_dependencies(vision_generate_messages vision_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg" NAME_WE)
 add_dependencies(vision_generate_messages_cpp _vision_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg" NAME_WE)
+add_dependencies(vision_generate_messages_cpp _vision_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(vision_gencpp)
@@ -63,6 +76,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS vision_generate_messages_cpp)
 ### Generating Messages
 _generate_msg_eus(vision
   "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/vision
+)
+_generate_msg_eus(vision
+  "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/vision
@@ -84,6 +103,8 @@ add_dependencies(vision_generate_messages vision_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg" NAME_WE)
 add_dependencies(vision_generate_messages_eus _vision_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg" NAME_WE)
+add_dependencies(vision_generate_messages_eus _vision_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(vision_geneus)
@@ -96,6 +117,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS vision_generate_messages_eus)
 ### Generating Messages
 _generate_msg_lisp(vision
   "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
+)
+_generate_msg_lisp(vision
+  "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
@@ -117,6 +144,8 @@ add_dependencies(vision_generate_messages vision_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg" NAME_WE)
 add_dependencies(vision_generate_messages_lisp _vision_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg" NAME_WE)
+add_dependencies(vision_generate_messages_lisp _vision_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(vision_genlisp)
@@ -129,6 +158,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS vision_generate_messages_lisp)
 ### Generating Messages
 _generate_msg_nodejs(vision
   "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/vision
+)
+_generate_msg_nodejs(vision
+  "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/vision
@@ -150,6 +185,8 @@ add_dependencies(vision_generate_messages vision_generate_messages_nodejs)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg" NAME_WE)
 add_dependencies(vision_generate_messages_nodejs _vision_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg" NAME_WE)
+add_dependencies(vision_generate_messages_nodejs _vision_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(vision_gennodejs)
@@ -162,6 +199,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS vision_generate_messages_nodejs)
 ### Generating Messages
 _generate_msg_py(vision
   "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
+)
+_generate_msg_py(vision
+  "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
@@ -182,6 +225,8 @@ add_dependencies(vision_generate_messages vision_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg" NAME_WE)
+add_dependencies(vision_generate_messages_py _vision_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg" NAME_WE)
 add_dependencies(vision_generate_messages_py _vision_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

@@ -1,2 +1,1 @@
-set(vision_MESSAGE_FILES "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg")
-set(vision_SERVICE_FILES "")
+/home/rajtagore/rgp2_ws/devel/.private/vision/share/vision/cmake/vision-msg-extras.cmake

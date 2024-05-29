@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg"
+messages_str = "/home/rajtagore/rgp2_ws/src/vision/msg/ObjCloud.msg;/home/rajtagore/rgp2_ws/src/vision/msg/ObjPose.msg"
 services_str = ""
 pkg_name = "vision"
 dependencies_str = "sensor_msgs;std_msgs"

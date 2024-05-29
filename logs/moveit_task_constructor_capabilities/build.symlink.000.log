@@ -1,0 +1,4 @@
+Symlinking /home/rajtagore/rgp2_ws/devel/share/moveit_task_constructor_capabilities/cmake/moveit_task_constructor_capabilitiesConfig-version.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/share/moveit_task_constructor_capabilities/cmake/moveit_task_constructor_capabilitiesConfig.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/libmoveit_task_constructor_capabilities.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/pkgconfig/moveit_task_constructor_capabilities.pc

@@ -1,8 +1,1 @@
-(cl:in-package vision-msg)
-(cl:export '(NAME-VAL
-          NAME
-          SIZE-VAL
-          SIZE
-          POINTS-VAL
-          POINTS
-))
+/home/rajtagore/rgp2_ws/devel/.private/vision/share/common-lisp/ros/vision/msg/_package_ObjCloud.lisp

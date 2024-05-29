@@ -1,0 +1,194 @@
+#!/usr/bin/env python
+#THIS WORK IN ROBOCUP!!!
+import rospy
+from geometry_msgs.msg import PoseStamped
+import tf
+#!/usr/bin/env python
+#THIS WORK IN BOTH ROBOCUP AND MOVIT PANDA!!!
+import rospy
+import actionlib
+from control_msgs.msg import GripperCommandAction, GripperCommandGoal
+
+def gripper_client(width, effort):
+    # Create an action client
+    client = actionlib.SimpleActionClient('/franka_gripper/gripper_action', GripperCommandAction)
+    client.wait_for_server()
+
+    # Create and send the goal
+    goal = GripperCommandGoal()
+    goal.command.position = width  # The target width for the gripper
+    goal.command.max_effort = effort  # The maximum effort the gripper should exert
+    client.send_goal(goal)
+    client.wait_for_result()
+
+    return client.get_result()
+
+
+def euler_to_quaternion(roll, pitch, yaw):
+    # Convert Euler angles (roll, pitch, yaw) to a quaternion
+    quaternion = tf.transformations.quaternion_from_euler(roll, pitch, yaw)
+    return quaternion
+
+
+def publish_pose(x, y, z, roll, pitch, yaw):
+    # Initialize the ROS node
+    rospy.init_node('gripper_pose_publisher', anonymous=True)
+
+    # Create a publisher on the specified topic
+    pub = rospy.Publisher('/cartesian_impedance_example_controller/equilibrium_pose', PoseStamped, queue_size=10)
+
+    # Wait until the publisher is connected to subscribers
+    rospy.sleep(1)
+
+    # Create the PoseStamped message
+    pose_msg = PoseStamped()
+    pose_msg.header.stamp = rospy.Time.now()
+    pose_msg.header.frame_id = 'panda_link0'
+
+    # Set the position of the gripper
+    pose_msg.pose.position.x = x
+    pose_msg.pose.position.y = y
+    pose_msg.pose.position.z = z
+
+    # Convert Euler angles to quaternion for orientation
+    q = euler_to_quaternion(roll, pitch, yaw)
+    pose_msg.pose.orientation.x = q[0]
+    pose_msg.pose.orientation.y = q[1]
+    pose_msg.pose.orientation.z = q[2]
+    pose_msg.pose.orientation.w = q[3]
+
+    # Publish the pose
+    pub.publish(pose_msg)
+    rospy.loginfo("Published gripper pose with Euler angles.")
+
+
+
+
+
+
+import rospy
+import actionlib
+from franka_gripper.msg import GraspAction, GraspGoal
+
+
+def grasp_object():
+   
+    grasp_client = actionlib.SimpleActionClient('/franka_gripper/grasp', GraspAction)
+    grasp_client.wait_for_server()
+
+    goal = GraspGoal()
+    goal.width = 0.067862
+    #goal.width = 0.065542
+    #goal.width = 0.073  
+    goal.speed = 0.1  
+    goal.force = 70  
+    goal.epsilon.inner = 0.01 
+    goal.epsilon.outer = 0.01  
+
+
+    grasp_client.send_goal(goal)
+
+
+    grasp_client.wait_for_result()
+
+
+    result = grasp_client.get_result()
+    return result
+
+
+import rospy
+from geometry_msgs.msg import PoseStamped
+import tf
+
+def euler_to_quaternion(roll, pitch, yaw):
+    # Convert Euler angles to a quaternion
+    quaternion = tf.transformations.quaternion_from_euler(roll, pitch, yaw)
+    return quaternion
+
+def publish_pose(x, y, z, roll, pitch, yaw):
+    # Create a publisher
+    pub = rospy.Publisher('/cartesian_impedance_example_controller/equilibrium_pose', PoseStamped, queue_size=10)
+    rospy.sleep(1)  # Ensure the publisher is connected
+
+    pose_msg = PoseStamped()
+    pose_msg.header.stamp = rospy.Time.now()
+    pose_msg.header.frame_id = 'panda_link0'
+    pose_msg.pose.position.x = x
+    pose_msg.pose.position.y = y
+    pose_msg.pose.position.z = z
+    q = euler_to_quaternion(roll, pitch, yaw)
+    pose_msg.pose.orientation.x = q[0]
+    pose_msg.pose.orientation.y = q[1]
+    pose_msg.pose.orientation.z = q[2]
+    pose_msg.pose.orientation.w = q[3]
+
+    pub.publish(pose_msg)
+    rospy.loginfo("Published new pose.")
+
+if __name__ == '__main__':
+    
+    try:
+        rospy.init_node('gripper_action_client')
+
+        # Define the width and effort
+        #max width is 0.04
+        target_width = 0.04 # Change this to the desired gripper width (in meters)
+        max_effort = 60  # Change this to the desired maximum effort (in Newtons)
+
+        # Call the gripper client with the desired width and effort
+        print("Setting gripper width to:", target_width)
+        result = gripper_client(target_width, max_effort)
+        print("Result:", result)
+
+    except rospy.ROSInterruptException:
+        print("Program interrupted before completion")
+    
+    
+    # Pose parameters - position
+    x = 0.3229
+    y = -0.02435   
+    z = 0.2
+
+    # Pose parameters - orientation in Euler angles (radians)
+    roll = -3.14#-3.14#-3.48#-2.8#-3.1415
+    pitch = -0.01 #-0.01 # 90 degrees=1.5708 180 degrees=3.1415
+    yaw = 0       #0
+
+    publish_pose(x, y, z, roll, pitch, yaw)
+    
+    
+      # Pose parameters - position
+    x = 0.3229
+    y = -0.02435   
+    z = -0.11572
+
+    # Pose parameters - orientation in Euler angles (radians)
+    roll = -3.14#-3.14#-3.48#-2.8#-3.1415
+    pitch = -0.01 #-0.01 # 90 degrees=1.5708 180 degrees=3.1415
+    yaw = -1.57       #0
+
+    publish_pose(x, y, z, roll, pitch, yaw)
+    
+    
+    
+    
+    
+    ######
+    rospy.init_node('gripper_control_and_move')
+    result = grasp_object()
+    if result and result.success:  
+        rospy.loginfo("Grasp successful, moving the arm.")
+       
+    x = -0.4652  # 0.32
+    y = -0.5  # 0.5
+    z = 0.2  # -0.1
+       
+    publish_pose(x, y, z, roll=-3.14, pitch=-0.01, yaw=0)
+
+    
+
+    
+    
+
+
+

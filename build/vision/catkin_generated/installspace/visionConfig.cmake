@@ -68,7 +68,7 @@ set(vision_CONFIG_INCLUDED TRUE)
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
   set(vision_SOURCE_PREFIX /home/rajtagore/rgp2_ws/src/vision)
-  set(vision_DEVEL_PREFIX /home/rajtagore/rgp2_ws/devel)
+  set(vision_DEVEL_PREFIX /home/rajtagore/rgp2_ws/devel/.private/vision)
   set(vision_INSTALL_PREFIX "")
   set(vision_PREFIX ${vision_DEVEL_PREFIX})
 else()

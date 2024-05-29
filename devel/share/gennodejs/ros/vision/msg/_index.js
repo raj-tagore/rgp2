@@ -1,8 +1,1 @@
-
-"use strict";
-
-let ObjCloud = require('./ObjCloud.js');
-
-module.exports = {
-  ObjCloud: ObjCloud,
-};
+/home/rajtagore/rgp2_ws/devel/.private/vision/share/gennodejs/ros/vision/msg/_index.js

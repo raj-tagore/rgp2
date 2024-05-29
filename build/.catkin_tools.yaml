@@ -1,0 +1,6 @@
+devel_space: /home/rajtagore/rgp2_ws/devel
+install: false
+install_space: /home/rajtagore/rgp2_ws/install
+profile: default
+source_space: /home/rajtagore/rgp2_ws/src
+workspace: /home/rajtagore/rgp2_ws

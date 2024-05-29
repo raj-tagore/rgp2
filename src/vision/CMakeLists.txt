@@ -53,6 +53,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   ObjCloud.msg
+  ObjPose.msg
 )
 
 ## Generate services in the 'srv' folder

@@ -1,6 +1,1 @@
-
-"use strict";
-
-module.exports = {
-  msg: require('./msg/_index.js'),
-};
+/home/rajtagore/rgp2_ws/devel/.private/vision/share/gennodejs/ros/vision/_index.js

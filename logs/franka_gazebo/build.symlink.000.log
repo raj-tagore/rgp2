@@ -1,0 +1,5 @@
+Symlinking /home/rajtagore/rgp2_ws/devel/share/franka_gazebo/cmake/franka_gazeboConfig.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/share/franka_gazebo/cmake/franka_gazeboConfig-version.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/libfranka_gripper_sim.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/libfranka_hw_sim.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/pkgconfig/franka_gazebo.pc

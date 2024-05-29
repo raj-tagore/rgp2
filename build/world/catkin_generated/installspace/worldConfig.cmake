@@ -68,7 +68,7 @@ set(world_CONFIG_INCLUDED TRUE)
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
   set(world_SOURCE_PREFIX /home/rajtagore/rgp2_ws/src/world)
-  set(world_DEVEL_PREFIX /home/rajtagore/rgp2_ws/devel)
+  set(world_DEVEL_PREFIX /home/rajtagore/rgp2_ws/devel/.private/world)
   set(world_INSTALL_PREFIX "")
   set(world_PREFIX ${world_DEVEL_PREFIX})
 else()

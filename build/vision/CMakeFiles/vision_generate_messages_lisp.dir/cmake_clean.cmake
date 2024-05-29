@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rajtagore/rgp2_ws/devel/share/common-lisp/ros/vision/msg/ObjCloud.lisp"
+  "/home/rajtagore/rgp2_ws/devel/.private/vision/share/common-lisp/ros/vision/msg/ObjCloud.lisp"
+  "/home/rajtagore/rgp2_ws/devel/.private/vision/share/common-lisp/ros/vision/msg/ObjPose.lisp"
   "CMakeFiles/vision_generate_messages_lisp"
 )
 

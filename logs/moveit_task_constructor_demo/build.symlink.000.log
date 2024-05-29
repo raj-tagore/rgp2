@@ -1,0 +1,10 @@
+Symlinking /home/rajtagore/rgp2_ws/devel/share/moveit_task_constructor_demo/cmake/moveit_task_constructor_demoConfig-version.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/share/moveit_task_constructor_demo/cmake/moveit_task_constructor_demoConfig.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/libmoveit_task_constructor_demo_pick_place_task.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_demo/pick_place_demo
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_demo/modular
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_demo/alternative_path_costs
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_demo/cartesian
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_demo/fallbacks_move_to
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_demo/ik_clearance_cost
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/pkgconfig/moveit_task_constructor_demo.pc

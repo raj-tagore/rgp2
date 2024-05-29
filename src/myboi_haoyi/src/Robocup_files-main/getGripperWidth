@@ -1,0 +1,35 @@
+import rospy
+import actionlib
+from franka_gripper.msg import GraspAction, GraspGoal
+
+
+def grasp_object():
+    # 创建一个SimpleActionClient，连接到"/franka_gripper/grasp" Action服务器
+    grasp_client = actionlib.SimpleActionClient('/franka_gripper/grasp', GraspAction)
+
+    # 等待服务器启动
+    grasp_client.wait_for_server()
+
+    # 创建一个目标（GraspGoal）实例
+    goal = GraspGoal()
+    goal.width = 0.02 # 目标抓取宽度，单位为米
+    goal.speed = 0.1  # 抓取时的速度
+    goal.force = 50  # 抓取时施加的力，单位为牛顿
+    goal.epsilon.inner = 0.01  # 内公差
+    goal.epsilon.outer = 0.01  # 外公差
+
+    # 发送抓取目标
+    grasp_client.send_goal(goal)
+
+    # 等待Action完成
+    grasp_client.wait_for_result()
+
+    # 获取抓取结果
+    result = grasp_client.get_result()
+    return result
+
+
+if __name__ == '__main__':
+    rospy.init_node('grasp_object_client')
+    result = grasp_object()
+    print("Grasp result:", result)

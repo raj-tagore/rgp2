@@ -68,7 +68,7 @@ set(pilot_CONFIG_INCLUDED TRUE)
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
   set(pilot_SOURCE_PREFIX /home/rajtagore/rgp2_ws/src/pilot)
-  set(pilot_DEVEL_PREFIX /home/rajtagore/rgp2_ws/devel)
+  set(pilot_DEVEL_PREFIX /home/rajtagore/rgp2_ws/devel/.private/pilot)
   set(pilot_INSTALL_PREFIX "")
   set(pilot_PREFIX ${pilot_DEVEL_PREFIX})
 else()

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/rajtagore/rgp2_ws/devel/include/vision/ObjCloud.h"
+  "/home/rajtagore/rgp2_ws/devel/.private/vision/include/vision/ObjCloud.h"
+  "/home/rajtagore/rgp2_ws/devel/.private/vision/include/vision/ObjPose.h"
   "CMakeFiles/vision_generate_messages_cpp"
 )
 

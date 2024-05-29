@@ -1,0 +1,1 @@
+/home/rajtagore/rgp2_ws/devel/.private/object_msgs/share/roseus/ros/object_msgs/msg/ObjectPose.l

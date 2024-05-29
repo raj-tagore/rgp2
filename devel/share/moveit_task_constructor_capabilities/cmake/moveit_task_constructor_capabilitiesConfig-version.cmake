@@ -1,0 +1,1 @@
+/home/rajtagore/rgp2_ws/devel/.private/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/cmake/moveit_task_constructor_capabilitiesConfig-version.cmake

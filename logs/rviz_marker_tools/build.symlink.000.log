@@ -1,0 +1,4 @@
+Symlinking /home/rajtagore/rgp2_ws/devel/share/rviz_marker_tools/cmake/rviz_marker_toolsConfig-version.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/share/rviz_marker_tools/cmake/rviz_marker_toolsConfig.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/librviz_marker_tools.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/pkgconfig/rviz_marker_tools.pc

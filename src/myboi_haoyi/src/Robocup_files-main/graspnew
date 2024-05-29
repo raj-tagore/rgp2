@@ -1,0 +1,79 @@
+
+import rospy
+import actionlib
+from franka_gripper.msg import GraspAction, GraspGoal
+
+
+def grasp_object():
+    # 创建一个SimpleActionClient，连接到"/franka_gripper/grasp" Action服务器
+    grasp_client = actionlib.SimpleActionClient('/franka_gripper/grasp', GraspAction)
+
+    # 等待服务器启动
+    grasp_client.wait_for_server()
+
+    # 创建一个目标（GraspGoal）实例
+    goal = GraspGoal()
+    goal.width = 0.067862
+    #goal.width = 0.065542
+    #goal.width = 0.073  # 目标抓取宽度，单位为米
+    goal.speed = 0.1  # 抓取时的速度
+    goal.force = 70  # 抓取时施加的力，单位为牛顿
+    goal.epsilon.inner = 0.01  # 内公差
+    goal.epsilon.outer = 0.01  # 外公差
+
+    # 发送抓取目标
+    grasp_client.send_goal(goal)
+
+    # 等待Action完成
+    grasp_client.wait_for_result()
+
+    # 获取抓取结果
+    result = grasp_client.get_result()
+    return result
+
+
+import rospy
+from geometry_msgs.msg import PoseStamped
+import tf
+
+def euler_to_quaternion(roll, pitch, yaw):
+    # Convert Euler angles to a quaternion
+    quaternion = tf.transformations.quaternion_from_euler(roll, pitch, yaw)
+    return quaternion
+
+def publish_pose(x, y, z, roll, pitch, yaw):
+    # Create a publisher
+    pub = rospy.Publisher('/cartesian_impedance_example_controller/equilibrium_pose', PoseStamped, queue_size=10)
+    rospy.sleep(1)  # Ensure the publisher is connected
+
+    pose_msg = PoseStamped()
+    pose_msg.header.stamp = rospy.Time.now()
+    pose_msg.header.frame_id = 'panda_link0'
+    pose_msg.pose.position.x = x
+    pose_msg.pose.position.y = y
+    pose_msg.pose.position.z = z
+    q = euler_to_quaternion(roll, pitch, yaw)
+    pose_msg.pose.orientation.x = q[0]
+    pose_msg.pose.orientation.y = q[1]
+    pose_msg.pose.orientation.z = q[2]
+    pose_msg.pose.orientation.w = q[3]
+
+    pub.publish(pose_msg)
+    rospy.loginfo("Published new pose.")
+
+if __name__ == '__main__':
+    rospy.init_node('gripper_control_and_move')
+
+    # 尝试抓取物体
+    result = grasp_object()
+    if result and result.success:  # 假设GraspAction的结果有一个表示成功的`success`字段
+        rospy.loginfo("Grasp successful, moving the arm.")
+        # 抓取成功，移动到新位置
+    x = -0.4652  # 0.32
+    y = -0.5  # 0.5
+    z = 0.2  # -0.1
+        # 移动到新的位置
+    publish_pose(x, y, z, roll=-3.14, pitch=-0.01, yaw=0)
+
+
+

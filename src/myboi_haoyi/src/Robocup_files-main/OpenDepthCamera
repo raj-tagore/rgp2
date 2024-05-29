@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+import rospy
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge, CvBridgeError
+import cv2
+import numpy as np
+
+def image_callback(msg):
+    bridge = CvBridge()
+    try:
+        # Convert the ROS Image message to OpenCV2 format
+        cv_image = bridge.imgmsg_to_cv2(msg, "passthrough")
+
+        # Optionally, display the raw depth image
+        # Note: The values in cv_image are floats representing distance in meters
+        # The window display might appear as a mostly black image if values are beyond display range
+        cv2.namedWindow("Raw Depth Image Window", cv2.WINDOW_NORMAL)
+        cv2.imshow("Raw Depth Image Window", cv_image)
+        cv2.waitKey(3)
+    except CvBridgeError as e:
+        print(e)
+
+
+def main():
+    rospy.init_node('depth_image_display_node', anonymous=True)
+    image_topic = "/camera/depth/image_raw"
+    rospy.Subscriber(image_topic, Image, image_callback)
+    rospy.spin()
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,1 @@
+/home/rajtagore/rgp2_ws/devel/.private/franka_gripper/share/franka_gripper/msg/GraspActionResult.msg

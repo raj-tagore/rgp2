@@ -1,0 +1,14 @@
+Symlinking /home/rajtagore/rgp2_ws/devel/share/moveit_task_constructor_core/pybind11
+Symlinking /home/rajtagore/rgp2_ws/devel/share/moveit_task_constructor_core/cmake/moveit_task_constructor_coreConfig.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/share/moveit_task_constructor_core/cmake/moveit_task_constructor_coreConfig-version.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/share/moveit_task_constructor_core/cmake/pybind11.cmake
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/libmoveit_task_constructor_core_stage_plugins.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/libgtest_utils.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/libmoveit_task_constructor_core_stages.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/libmoveit_task_constructor_core.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/python3/dist-packages/pymoveit_mtc.cpython-38-x86_64-linux-gnu.so
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/python3/dist-packages/moveit/__init__.py
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_core/pick_ur5
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_core/pick_pa10
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/moveit_task_constructor_core/pick_pr2
+Symlinking /home/rajtagore/rgp2_ws/devel/lib/pkgconfig/moveit_task_constructor_core.pc

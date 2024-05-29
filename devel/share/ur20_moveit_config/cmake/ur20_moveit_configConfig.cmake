@@ -1,0 +1,1 @@
+/home/rajtagore/rgp2_ws/devel/.private/ur20_moveit_config/share/ur20_moveit_config/cmake/ur20_moveit_configConfig.cmake

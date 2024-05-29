@@ -1,0 +1,45 @@
+import rospy
+import tf2_ros
+import tf2_py as tf2
+
+
+def get_available_transforms(tf_buffer):
+    try:
+        # Get all frames in the buffer
+        all_frames = tf_buffer._getFrameStrings()
+
+        available_transforms = []
+
+        # Attempt to lookup each transform to check if it's available
+        for source_frame in all_frames:
+            for target_frame in all_frames:
+                if source_frame != target_frame:
+                    try:
+                        tf_buffer.lookup_transform(target_frame, source_frame, rospy.Time(0), rospy.Duration(0.1))
+                        available_transforms.append((source_frame, target_frame))
+                    except (tf2.LookupException, tf2.ConnectivityException, tf2.ExtrapolationException):
+                        continue
+
+        return available_transforms
+    except Exception as e:
+        rospy.logerr("Error while getting available transforms: %s", str(e))
+        return []
+
+
+def main():
+    rospy.init_node('tf_listener')
+
+    tf_buffer = tf2_ros.Buffer()
+    listener = tf2_ros.TransformListener(tf_buffer)
+
+    rospy.sleep(1)  # Wait for some transforms to be received
+
+    available_transforms = get_available_transforms(tf_buffer)
+
+    print("Available transforms:")
+    for source_frame, target_frame in available_transforms:
+        print(f"{source_frame} -> {target_frame}")
+
+
+if __name__ == '__main__':
+    main()

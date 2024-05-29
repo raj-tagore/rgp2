@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/rajtagore/rgp2_ws/devel/lib/python3/dist-packages/vision/msg/_ObjCloud.py"
-  "/home/rajtagore/rgp2_ws/devel/lib/python3/dist-packages/vision/msg/__init__.py"
+  "/home/rajtagore/rgp2_ws/devel/.private/vision/lib/python3/dist-packages/vision/msg/_ObjCloud.py"
+  "/home/rajtagore/rgp2_ws/devel/.private/vision/lib/python3/dist-packages/vision/msg/_ObjPose.py"
+  "/home/rajtagore/rgp2_ws/devel/.private/vision/lib/python3/dist-packages/vision/msg/__init__.py"
   "CMakeFiles/vision_generate_messages_py"
 )
 

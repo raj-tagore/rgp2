@@ -1,4 +1,1 @@
-# generated from genmsg/cmake/pkg-msg-paths.cmake.develspace.in
-
-set(vision_MSG_INCLUDE_DIRS "/home/rajtagore/rgp2_ws/src/vision/msg")
-set(vision_MSG_DEPENDENCIES sensor_msgs;std_msgs)
+/home/rajtagore/rgp2_ws/devel/.private/vision/share/vision/cmake/vision-msg-paths.cmake
